@@ -5,13 +5,10 @@ import { useDispatch } from 'react-redux';
 
 const CartItem = ({id, title, price,img, amount}) => {
     const dispatch = useDispatch();
-    const style = {color: 'blue'}
     const remove = ()=> dispatch(removeItem(id));
-    const up = () => dispatch(increase(id))
-    const down = () => { 
-        // if(amount === 1 ) return remove();
-        dispatch(decrease(id))
-    }
+    const up = () => dispatch(increase(id));
+    const down = () => dispatch(decrease(id));
+    
 
 
   return (
@@ -23,11 +20,15 @@ const CartItem = ({id, title, price,img, amount}) => {
             <button className='remove-btn' onClick={remove} >remove</button>
         </div>
         <div>
-            <button className='amount-btn' onClick={up}>
+            <button 
+                className='amount-btn' 
+                onClick={up}>
                 <ChevronUp />
             </button>
             <p className='amount'>{amount}</p>
-            <button className={`amount-btn ${amount < 1 ?  'under-zero' : ''}`} onClick={down}>
+            <button 
+                className={`amount-btn ${amount < 1 ?  'under-zero' : ''}`} 
+                onClick={down}>
                 <ChevronDown />
             </button>
         </div>
