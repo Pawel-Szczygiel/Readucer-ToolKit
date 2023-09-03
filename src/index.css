@@ -236,6 +236,10 @@ Cart Item
   font-weight: 500;
   letter-spacing: 2px;
 }
+.under-zero {
+  visibility: hidden;
+}
+
 .item-price {
   color: var(--clr-grey-5);
 }
