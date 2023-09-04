@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 
 const CartItem = ({id, title, price,img, amount}) => {
     const dispatch = useDispatch();
-    const remove = ()=> dispatch(removeItem(id));
-    const up = () => dispatch(increase(id));
-    const down = () => dispatch(decrease(id));
+    const remove = () => dispatch(removeItem(id));
+    const increment = () => dispatch(increase(id));
+    const decrement = () => dispatch(decrease(id));
     
 
 
@@ -22,13 +22,13 @@ const CartItem = ({id, title, price,img, amount}) => {
         <div>
             <button 
                 className='amount-btn' 
-                onClick={up}>
+                onClick={increment}>
                 <ChevronUp />
             </button>
             <p className='amount'>{amount}</p>
             <button 
                 className={`amount-btn ${amount < 1 ?  'under-zero' : ''}`} 
-                onClick={down}>
+                onClick={decrement}>
                 <ChevronDown />
             </button>
         </div>

@@ -1,14 +1,16 @@
 import React from 'react'
 import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux'
-import { clearCart } from '../features/cart/cartSlice';
+import { openModal } from '../features/modal/modalSlice';
 
 
 const CartContainer = () => {
     const dispatch = useDispatch();
     const {cartItems, amount, total} = useSelector(store => store.cart)
 
-   const clear = () => dispatch(clearCart());
+
+
+   const clear = () => dispatch(openModal());
 
     if(amount < 1) {
         return (
